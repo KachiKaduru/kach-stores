@@ -1,0 +1,7 @@
+.footer {
+  /* position: absolute; */
+  bottom: 0;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

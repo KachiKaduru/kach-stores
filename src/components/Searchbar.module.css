@@ -1,0 +1,16 @@
+.search {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--grey);
+  border-radius: 1rem;
+  position: relative;
+
+  input {
+    width: 100%;
+    background: none;
+    border: none;
+    border-radius: 1rem;
+    font-family: "General Sans", sans-serif;
+  }
+}

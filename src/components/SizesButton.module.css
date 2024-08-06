@@ -1,0 +1,10 @@
+.sizeBtn {
+  width: 5rem;
+  height: 4.7rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "General Sans", sans-serif;
+  background: none;
+  border: 1px solid var(--grey);
+}

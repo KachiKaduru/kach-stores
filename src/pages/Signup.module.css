@@ -1,0 +1,10 @@
+.section {
+  display: grid;
+  gap: 3.5rem;
+}
+
+.heading {
+  p {
+    color: var(--sec-color);
+  }
+}

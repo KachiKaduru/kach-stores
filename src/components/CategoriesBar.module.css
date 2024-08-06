@@ -1,0 +1,6 @@
+.catBar {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: scroll;
+  padding: 0 1rem 1rem 0;
+}

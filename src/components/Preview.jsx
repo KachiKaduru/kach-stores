@@ -1,12 +1,15 @@
+import { useStore } from "../contexts/StoreContext";
 import styles from "./Preview.module.css";
 
-const url = `https://bintusstore.vercel.app`;
 export default function Preview({ item }) {
+  const { URL } = useStore();
+
   return (
     <div className={styles.card}>
       <div className={styles.imgContainer}>
+        {/* the DIV below is necessary for the styling */}
         <div></div>
-        <img src={`${url}${item.image}`} alt="" />
+        <img src={`${URL}${item.image}`} alt="" />
       </div>
 
       <div className={styles.info}>

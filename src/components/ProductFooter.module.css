@@ -1,7 +1,6 @@
 .footer {
   /* position: absolute; */
-  bottom: 0;
-  width: fit-content;
+  /* bottom: 0; */
   display: grid;
   grid-template-columns: 1fr 1fr;
 }

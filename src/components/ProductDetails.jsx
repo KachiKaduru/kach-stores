@@ -19,7 +19,7 @@ export default function ProductDetails() {
         </p>
       </div>
 
-      <div>
+      <div className="sizes">
         <h4>choose size</h4>
 
         {sizes.map((size) => (

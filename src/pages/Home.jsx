@@ -5,6 +5,8 @@ import Searchbar from "../components/Searchbar";
 import axios from "axios";
 import Preview from "../components/Preview";
 import ProductsContainer from "../components/ProductsContainer";
+import CategoriesBar from "../components/CategoriesBar";
+import { Outlet } from "react-router-dom";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +34,9 @@ export default function Home() {
     <section className="home">
       <Header />
       <Searchbar />
+      <CategoriesBar />
+
+      <Outlet />
 
       <div>
         {isLoading ? (

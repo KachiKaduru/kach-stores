@@ -25,7 +25,7 @@ body {
 
 section {
   max-width: 380px;
-  height: 100vh;
+  /* height: 100vh; */
   margin: auto;
   padding: 5rem 2.4rem;
   border: 1px solid green;
@@ -55,6 +55,11 @@ form {
       /* color: var(--sec-color); */
     }
   }
+}
+
+button {
+  font-family: "General Sans", sans-serif;
+  cursor: pointer;
 }
 
 .home {

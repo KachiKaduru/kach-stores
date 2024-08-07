@@ -63,6 +63,12 @@ const categoryItems = [
 
 function StoreProvider({ children }) {
   const [category, setCategory] = useState([]);
+  const [productItem, setProductItem] = useState({});
+  const [wishlist, setWishlist] = useState([]);
+
+  function addToWishlist(id) {
+    setWishlist([id, ...wishlist]);
+  }
 
   return (
     <StoreContext.Provider
@@ -71,6 +77,10 @@ function StoreProvider({ children }) {
         categoryItems,
         category,
         setCategory,
+        productItem,
+        setProductItem,
+        wishlist,
+        addToWishlist,
       }}
     >
       {children}

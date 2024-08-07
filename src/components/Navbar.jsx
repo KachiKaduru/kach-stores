@@ -11,7 +11,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${open && styles.width}`}>
       <div onClick={handleOpen}>
         <img src={menuImg} alt="menu" />
       </div>
@@ -28,7 +28,7 @@ export default function Navbar() {
             <NavLink to="cart">Cart</NavLink>
           </li>
           <li>
-            <NavLink to="settings">Settings</NavLink>
+            <NavLink to="signup">Sign up</NavLink>
           </li>
         </ul>
       )}

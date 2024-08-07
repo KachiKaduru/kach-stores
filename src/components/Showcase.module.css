@@ -1,0 +1,5 @@
+.showcase {
+  border: 1px solid red;
+  display: grid;
+  min-height: calc(100vh - 25rem);
+}

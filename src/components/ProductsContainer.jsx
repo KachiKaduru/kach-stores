@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Preview from "./Preview";
 import styles from "./ProductsContainer.module.css";
 import axios from "axios";
-import Spinner from "./Spinner";
+// import Spinner from "./Spinner";
 import { useStore } from "../contexts/StoreContext";
 
 export default function ProductsContainer({ text }) {
-  const { category, setCategory } = useStore();
-  const [isLoadingCategory, setIsLoadingCategory] = useState(false);
+  const { category, setCategory, isLoading, setIsLoading } = useStore();
 
   useEffect(
     function () {
       async function getCategory() {
-        setIsLoadingCategory(true);
+        setIsLoading(true);
         try {
           const res = await axios.get(
             `https://clothin-line.onrender.com/api/product?pageNumber=1&category=${text}`
@@ -23,16 +22,21 @@ export default function ProductsContainer({ text }) {
         } catch (error) {
           throw new Error(`Error: ${error}`);
         } finally {
-          setIsLoadingCategory(false);
+          setIsLoading(false);
         }
       }
       getCategory();
     },
-    [text, setCategory]
+    [text, setCategory, setIsLoading]
   );
   return (
     <main>
-      {isLoadingCategory ? (
+      <div className={styles.container}>
+        {category.map((item) => (
+          <Preview item={item} key={item._id} />
+        ))}
+      </div>
+      {/* {isLoading ? (
         <Spinner />
       ) : (
         <div className={styles.container}>
@@ -40,7 +44,7 @@ export default function ProductsContainer({ text }) {
             <Preview item={item} key={item._id} />
           ))}
         </div>
-      )}
+      )} */}
     </main>
   );
 }

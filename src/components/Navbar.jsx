@@ -18,7 +18,7 @@ export default function Navbar() {
       </div>
 
       <div className={`${styles.sideNav} ${open ? styles.width : styles.noWidth}`}>
-        <div onClick={handleOpen} className={styles.openNav}>
+        <div onClick={handleOpen} className={styles.closeNav}>
           <img src={closeImg} alt="close" />
         </div>
 

@@ -62,6 +62,7 @@ const categoryItems = [
 ];
 
 function StoreProvider({ children }) {
+  const [isLoading, setIsLoading] = useState(false);
   const [category, setCategory] = useState([]);
   const [productItem, setProductItem] = useState({});
   const [wishlist, setWishlist] = useState([]);
@@ -74,6 +75,8 @@ function StoreProvider({ children }) {
     <StoreContext.Provider
       value={{
         URL,
+        isLoading,
+        setIsLoading,
         categoryItems,
         category,
         setCategory,

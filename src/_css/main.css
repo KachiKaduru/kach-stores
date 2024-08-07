@@ -66,3 +66,22 @@ button {
   display: grid;
   gap: 1.5rem;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.spinner {
+  display: grid;
+  grid-area: span 2;
+  place-self: center;
+}
+
+.active {
+  button {
+    background: var(--pry-color);
+    color: #fff;
+  }
+}

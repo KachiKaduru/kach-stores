@@ -3,6 +3,7 @@
   /* width: 18rem; */
   border: 1px solid var(--sec-color);
   border-radius: 1.6rem;
+  cursor: pointer;
 }
 
 .imgContainer {

@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 const StoreContext = createContext();
 
@@ -53,22 +53,24 @@ const categoryItems = [
     image: "/pant_images/IMG_1627.JPG",
     route: "pants",
   },
-  {
-    _id: 9,
-    text: "Shorts",
-    image: "/shorts_images/IMG_1619.JPG",
-    route: "shorts",
-  },
+  // {
+  //   _id: 9,
+  //   text: "Shorts",
+  //   image: "/shorts_images/IMG_1619.JPG",
+  //   route: "shorts",
+  // },
 ];
 
-// const link = `https://clothin-line.onrender.com/api/product?pageNumber=${pageNumber}&category=${category}`;
-
 function StoreProvider({ children }) {
+  const [category, setCategory] = useState([]);
+
   return (
     <StoreContext.Provider
       value={{
         URL,
         categoryItems,
+        category,
+        setCategory,
       }}
     >
       {children}

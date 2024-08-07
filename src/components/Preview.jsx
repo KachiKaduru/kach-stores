@@ -1,11 +1,16 @@
+import { Link, useNavigate } from "react-router-dom";
 import { useStore } from "../contexts/StoreContext";
 import styles from "./Preview.module.css";
 
 export default function Preview({ item }) {
+  const navigate = useNavigate();
   const { URL } = useStore();
 
+  function handleClick() {
+    navigate("/product");
+  }
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleClick}>
       <div className={styles.imgContainer}>
         {/* the DIV below is necessary for the styling */}
         <div></div>

@@ -7,6 +7,7 @@ import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import Settings from "./pages/Settings";
 import Product from "./pages/Product";
+import ProductsContainer from "./components/ProductsContainer";
 
 export default function App() {
   const { categoryItems } = useStore();
@@ -16,8 +17,13 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />}>
           {categoryItems.map((item) => (
-            <Route path={item.route} element={<p>{item.text}</p>} key={item.route} />
+            <Route
+              path={item.route}
+              element={<ProductsContainer text={item.text} />}
+              key={item.route}
+            />
           ))}
+          {/* <Route path="/:route" element={<p></p>}/> */}
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />

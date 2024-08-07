@@ -1,7 +1,8 @@
-import { NavLink } from "react-router-dom";
-import menuImg from "../images/menu.svg";
-import styles from "./Navbar.module.css";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import styles from "./Navbar.module.css";
+import menuImg from "../images/menu.svg";
+import closeImg from "../images/close.svg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -11,12 +12,16 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`${styles.nav} ${open && styles.width}`}>
+    <nav className={`${styles.nav}`}>
       <div onClick={handleOpen}>
         <img src={menuImg} alt="menu" />
       </div>
 
-      {open && (
+      <div className={`${styles.sideNav} ${open ? styles.width : styles.noWidth}`}>
+        <div onClick={handleOpen} className={styles.openNav}>
+          <img src={closeImg} alt="close" />
+        </div>
+
         <ul>
           <li>
             <NavLink to="/">Home</NavLink>
@@ -31,7 +36,7 @@ export default function Navbar() {
             <NavLink to="signup">Sign up</NavLink>
           </li>
         </ul>
-      )}
+      </div>
     </nav>
   );
 }

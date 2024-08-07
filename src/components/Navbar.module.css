@@ -1,20 +1,48 @@
 .nav {
   position: relative;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.openNav {
+}
+
+.sideNav {
+  background-color: #000000da;
+  position: absolute;
+  top: -5rem;
+  right: -6rem;
+  z-index: 999;
+  width: 120%;
+  height: 100vh;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 
   ul {
-    background-color: grey;
-    position: absolute;
-    right: 0;
-    z-index: 99;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    display: grid;
+    gap: 3rem;
+
+    li a {
+      font-weight: 500;
+      font-size: 2rem;
+      color: #fff;
+    }
   }
 }
 
+.noWidth {
+  transition: all 0.3s;
+  width: 0%;
+  opacity: 0;
+  z-index: -10;
+}
+
 .width {
-  width: 50%;
+  transition: all 0.3s;
+  width: 100%;
 }

@@ -6,4 +6,6 @@
   width: 100%;
   border-radius: 1rem;
   border: none;
+  display: grid;
+  place-content: center;
 }

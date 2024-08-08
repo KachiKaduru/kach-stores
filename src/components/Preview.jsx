@@ -4,12 +4,9 @@ import styles from "./Preview.module.css";
 import Heart from "./Heart";
 
 export default function Preview({ item }) {
-  const { URL, addToWishlist } = useStore();
+  const { URL, handleWishlistItems, wishlist } = useStore();
   const { _id } = item;
-
-  function handleLiked() {
-    console.log(_id);
-  }
+  const liked = wishlist.includes(_id);
 
   return (
     <Link to={`/product/${_id}`}>
@@ -22,11 +19,10 @@ export default function Preview({ item }) {
             className={styles.heartContainer}
             onClick={(e) => {
               e.preventDefault();
-              // console.log(_id);
-              addToWishlist(_id);
+              handleWishlistItems(_id);
             }}
           >
-            <Heart />
+            {liked ? <Heart fill="red" stroke="red" /> : <Heart />}
           </div>
           <img src={`${URL}${item.image}`} alt="" />
         </div>

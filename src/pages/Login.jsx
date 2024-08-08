@@ -3,16 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./Signup.module.css";
 import Button from "../components/Button";
+import { useStore } from "../contexts/StoreContext";
+import Spinner from "../components/Spinner";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { isLoading, setIsLoading } = useStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
 
   async function handleLogin(e) {
     e.preventDefault();
-
+    setIsLoading(true);
     try {
       const res = await axios.post("https://clothin-line.onrender.com/api/users/login", {
         email,
@@ -24,6 +27,8 @@ export default function Login() {
     } catch (error) {
       console.log(error.response.data.message);
       setErrorMessage(error.response.data.message);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -65,7 +70,7 @@ export default function Login() {
 
         {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
-        <Button>Login</Button>
+        <Button>{isLoading ? <Spinner size={20} color="white" /> : "Login"}</Button>
       </form>
 
       <p>

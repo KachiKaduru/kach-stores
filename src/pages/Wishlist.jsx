@@ -4,13 +4,15 @@ import { useEffect } from "react";
 
 export default function Wishlist() {
   const { isAuthenticated } = useAuth();
+
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/login");
-    }
-  }, [isAuthenticated, navigate]);
+  useEffect(
+    function () {
+      if (!isAuthenticated) navigate("/login");
+    },
+    [isAuthenticated, navigate]
+  );
 
   // if (!isAuthenticated) {
   //   return null; // or a loading spinner if you want to show something while redirecting

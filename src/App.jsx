@@ -31,7 +31,7 @@ export default function App() {
           <Route path="signup" element={<Signup />} />
 
           {/* PROTECTED ROUTES */}
-          <Route path="wishlist" element={<Wishlist replace />} />
+          <Route path="wishlist" element={<Wishlist />} />
           <Route path="cart" element={<Cart />} />
           <Route path="settings" element={<Settings />} />
           {/* <Route path="product" element={<Product />}/> */}

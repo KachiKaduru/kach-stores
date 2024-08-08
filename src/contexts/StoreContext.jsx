@@ -67,9 +67,14 @@ function StoreProvider({ children }) {
   const [productItem, setProductItem] = useState({});
   const [wishlist, setWishlist] = useState([]);
 
-  function addToWishlist(id) {
-    setWishlist([id, ...wishlist]);
+  function handleWishlistItems(id) {
+    // setWishlist([id, ...wishlist]);
+    setWishlist((list) => (list.includes(id) ? list.filter((item) => item !== id) : [id, ...list]));
   }
+
+  // function deleteFromWishList(id) {
+  //   setWishlist((list) => list.filter((item) => item !== id));
+  // }
 
   return (
     <StoreContext.Provider
@@ -83,7 +88,7 @@ function StoreProvider({ children }) {
         productItem,
         setProductItem,
         wishlist,
-        addToWishlist,
+        handleWishlistItems,
       }}
     >
       {children}

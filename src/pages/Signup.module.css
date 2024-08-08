@@ -8,3 +8,27 @@
     color: var(--sec-color);
   }
 }
+
+@keyframes vibrate {
+  0% {
+    transform: translateX(1rem);
+  }
+  25% {
+    transform: translateX(-1rem);
+  }
+  50% {
+    transform: translateX(1rem);
+  }
+  75% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.error {
+  color: red;
+  animation-name: vibrate;
+  animation-duration: 0.3s;
+}

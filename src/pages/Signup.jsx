@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Signup.module.css";
 import Button from "../components/Button";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -70,6 +70,10 @@ export default function Signup() {
 
         <Button>Sign Up</Button>
       </form>
+
+      <p>
+        Already have an account, <Link to="/login">Log in</Link>
+      </p>
     </section>
   );
 }

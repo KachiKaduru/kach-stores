@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Spinner from "./Spinner";
 import Preview from "./Preview";
 import { useStore } from "../contexts/StoreContext";
 
 export default function NewArrivals() {
-  const { isLoading, setIsLoading } = useStore();
+  const { setIsLoading } = useStore();
   const [arrivals, setArrivals] = useState([]);
 
   useEffect(
@@ -30,19 +29,10 @@ export default function NewArrivals() {
   );
 
   return (
-    <div className="container">
-      {/* {isLoading ? (
-        <Spinner />
-      ) : (
-        <>
-          {arrivals.map((item) => (
-            <Preview item={item} key={item._id} />
-          ))}
-        </> */}
-
+    <main className="container">
       {arrivals.map((item) => (
         <Preview item={item} key={item._id} />
       ))}
-    </div>
+    </main>
   );
 }

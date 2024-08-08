@@ -1,10 +1,26 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import styles from "./Signup.module.css";
 import Button from "../components/Button";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  async function handleLogin(e) {
+    e.preventDefault();
+
+    const res = await axios.post("https://clothin-line.onrender.com/api/users/login", {
+      email,
+      password,
+    });
+
+    localStorage.setItem("user", res.data);
+    console.log(res);
+    navigate("/");
+  }
 
   return (
     <section className={styles.section}>
@@ -13,7 +29,7 @@ export default function Login() {
         <p>Let&apos;s get you back into your account</p>
       </div>
 
-      <form action="">
+      <form action="" onSubmit={handleLogin}>
         <label htmlFor="email">
           <legend>Email</legend>
 

@@ -11,7 +11,7 @@ export default function Home() {
   const { category, isLoading } = useStore();
   // console.log(category);
 
-  console.log(isLoading);
+  // console.log(isLoading);
 
   return (
     <section className="home">
@@ -22,17 +22,7 @@ export default function Home() {
       <Showcase>
         {isLoading && <Spinner />}
         <Outlet />
-
         {category.length < 1 && <NewArrivals />}
-        {/* {isLoading ? <Spinner /> : <NewArrivals />} */}
-        {/* {isLoading ? (
-          <Spinner />
-        ) : (
-          <>
-            <Outlet />
-            {category.length < 1 && <NewArrivals />}
-          </>
-        )} */}
       </Showcase>
     </section>
   );

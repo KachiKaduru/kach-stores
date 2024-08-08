@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import Preview from "./Preview";
 import styles from "./ProductsContainer.module.css";
 import axios from "axios";
-// import Spinner from "./Spinner";
 import { useStore } from "../contexts/StoreContext";
 
 export default function ProductsContainer({ text }) {
-  const { category, setCategory, isLoading, setIsLoading } = useStore();
+  const { category, setCategory, setIsLoading } = useStore();
 
   useEffect(
     function () {
@@ -30,21 +29,10 @@ export default function ProductsContainer({ text }) {
     [text, setCategory, setIsLoading]
   );
   return (
-    <main>
-      <div className={styles.container}>
-        {category.map((item) => (
-          <Preview item={item} key={item._id} />
-        ))}
-      </div>
-      {/* {isLoading ? (
-        <Spinner />
-      ) : (
-        <div className={styles.container}>
-          {category.map((item) => (
-            <Preview item={item} key={item._id} />
-          ))}
-        </div>
-      )} */}
+    <main className={styles.container}>
+      {category.map((item) => (
+        <Preview item={item} key={item._id} />
+      ))}
     </main>
   );
 }

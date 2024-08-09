@@ -1,18 +1,18 @@
+import axios from "axios";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useStore } from "../contexts/StoreContext";
 import ProductDetails from "../components/ProductDetails";
 import ProductFooter from "../components/ProductFooter";
 import ProductHeader from "../components/ProductHeader";
 
 import styles from "./Product.module.css";
-import { useEffect } from "react";
-import axios from "axios";
-import { useStore } from "../contexts/StoreContext";
 
 // https://clothin-line.onrender.com/api/product/${id}
 
 export default function Product() {
   const { id } = useParams();
-  const { setProductItem, setIsLoading } = useStore();
+  const { productItem, setProductItem, setIsLoading } = useStore();
 
   useEffect(
     function () {

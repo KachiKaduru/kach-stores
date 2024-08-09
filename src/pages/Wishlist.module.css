@@ -1,0 +1,18 @@
+.wishlist {
+  header {
+    display: grid;
+    grid-template-columns: 0.35fr 0.7fr;
+    align-items: center;
+
+    h2 {
+      font-weight: 600;
+      line-height: 4.5rem;
+    }
+  }
+
+  .wishlistContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

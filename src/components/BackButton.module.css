@@ -1,6 +1,8 @@
 .backBtn {
   width: 2rem;
   height: 2rem;
+  background: none;
+  border: none;
 
   img {
     width: 100%;

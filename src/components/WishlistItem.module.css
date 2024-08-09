@@ -1,0 +1,9 @@
+.item {
+  display: flex;
+  background: var(--grey);
+  padding: 1rem;
+  border-radius: 1rem;
+
+  .imgContainer {
+  }
+}

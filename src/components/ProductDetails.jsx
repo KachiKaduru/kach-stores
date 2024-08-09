@@ -1,5 +1,5 @@
 import { useStore } from "../contexts/StoreContext";
-import Heart from "./Heart";
+import LikedButton from "./LikedButton";
 import styles from "./ProductDetails.module.css";
 import SizesButton from "./SizesButton";
 import Spinner from "./Spinner";
@@ -7,9 +7,8 @@ import Spinner from "./Spinner";
 const sizes = ["S", "M", "L", "XL", "2XL"];
 
 export default function ProductDetails({ id }) {
-  const { URL, productItem, isLoading, wishlist } = useStore();
+  const { URL, productItem, isLoading } = useStore();
   const { image, name } = productItem;
-  const liked = wishlist.includes(id);
 
   return (
     <div className={styles.details}>
@@ -20,11 +19,7 @@ export default function ProductDetails({ id }) {
       <div className={styles.info}>
         <div>
           <h3>{name}</h3>
-          {liked ? (
-            <Heart width={30} height={30} fill="red" stroke="red" />
-          ) : (
-            <Heart width={30} height={30} />
-          )}
+          <LikedButton id={id} width={30} height={30} />
         </div>
         <p>reviews</p>
         <p>

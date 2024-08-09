@@ -22,13 +22,12 @@
 
   .info {
     div {
-      /* border: 1px solid red; */
       display: grid;
       grid-template-columns: 0.8fr 0.2fr;
       align-items: center;
 
       svg {
-        justify-self: center;
+        justify-self: end;
       }
     }
   }

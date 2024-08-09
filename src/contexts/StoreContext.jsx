@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const StoreContext = createContext();
 
@@ -65,16 +65,22 @@ function StoreProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [category, setCategory] = useState([]);
   const [productItem, setProductItem] = useState({});
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useState(() => {
+    const storedValue = localStorage.getItem("wishlist");
+    return JSON.parse(storedValue);
+  });
 
   function handleWishlistItems(id) {
     // setWishlist([id, ...wishlist]);
     setWishlist((list) => (list.includes(id) ? list.filter((item) => item !== id) : [id, ...list]));
   }
 
-  // function deleteFromWishList(id) {
-  //   setWishlist((list) => list.filter((item) => item !== id));
-  // }
+  useEffect(
+    function () {
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    },
+    [wishlist]
+  );
 
   return (
     <StoreContext.Provider

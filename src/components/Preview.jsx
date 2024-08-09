@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { useStore } from "../contexts/StoreContext";
 import styles from "./Preview.module.css";
-import Heart from "./Heart";
+import LikedButton from "./LikedButton";
 
 export default function Preview({ item }) {
-  const { URL, handleWishlistItems, wishlist } = useStore();
+  const { URL } = useStore();
   const { _id } = item;
-  const liked = wishlist.includes(_id);
 
   return (
     <Link to={`/product/${_id}`}>
@@ -15,15 +14,7 @@ export default function Preview({ item }) {
           {/* the SPAN below is necessary for the styling */}
           <span className={styles.top}></span>
 
-          <div
-            className={styles.heartContainer}
-            onClick={(e) => {
-              e.preventDefault();
-              handleWishlistItems(_id);
-            }}
-          >
-            {liked ? <Heart fill="red" stroke="red" /> : <Heart />}
-          </div>
+          <LikedButton className={styles.heartContainer} id={_id} />
 
           <img src={`${URL}${item.image}`} alt="image" loading="lazy" />
         </div>

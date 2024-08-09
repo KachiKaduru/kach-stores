@@ -9,9 +9,6 @@ import Spinner from "../components/Spinner";
 
 export default function Home() {
   const { category, isLoading } = useStore();
-  // console.log(category);
-
-  // console.log(isLoading);
 
   return (
     <section className="home">

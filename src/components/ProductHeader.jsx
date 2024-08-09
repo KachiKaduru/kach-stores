@@ -6,8 +6,6 @@ export default function ProductHeader() {
       <BackButton />
 
       <h2>Details</h2>
-
-      <div></div>
     </header>
   );
 }

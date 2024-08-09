@@ -12,28 +12,31 @@ import { useStore } from "../contexts/StoreContext";
 
 export default function Product() {
   const { id } = useParams();
-  const { setProductItem, productItem } = useStore();
+  const { setProductItem, setIsLoading } = useStore();
 
   useEffect(
     function () {
       async function getItem() {
+        setIsLoading(true);
         try {
           const res = await axios.get(`https://clothin-line.onrender.com/api/product/${id}`);
           const data = res.data;
           setProductItem(data);
         } catch (error) {
           throw new Error(`error: ${error}`);
+        } finally {
+          setIsLoading(false);
         }
       }
       getItem();
     },
-    [id, setProductItem]
+    [id, setProductItem, setIsLoading]
   );
 
   return (
     <section className={styles.product}>
       <ProductHeader />
-      <ProductDetails />
+      <ProductDetails id={id} />
       <ProductFooter />
     </section>
   );

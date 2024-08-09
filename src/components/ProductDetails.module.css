@@ -1,11 +1,51 @@
 .details {
+  /* border: 1px solid green; */
+  display: grid;
+  gap: 1.5rem;
+
   .imgContainer {
+    border: 1px solid var(--grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 37rem;
+    height: 35rem;
 
     img {
+      padding: 2rem;
+      box-shadow: 0.4rem 0.4rem 0.8rem 0.1rem var(--grey);
+      /* border: 1px solid blue; */
       width: 100%;
       height: 100%;
+    }
+  }
+
+  .info {
+    div {
+      /* border: 1px solid red; */
+      display: grid;
+      grid-template-columns: 0.8fr 0.2fr;
+      align-items: center;
+
+      svg {
+        justify-self: center;
+      }
+    }
+  }
+
+  .sizes {
+    display: grid;
+    gap: 0.7rem;
+
+    h4 {
+      font-weight: 600;
+      font-size: 2rem;
+      line-height: 3.5rem;
+    }
+
+    div {
+      display: flex;
+      gap: 1rem;
     }
   }
 }

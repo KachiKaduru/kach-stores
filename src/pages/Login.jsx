@@ -70,7 +70,7 @@ export default function Login() {
 
         {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
-        <Button>{isLoading ? <Spinner size={20} color="white" /> : "Login"}</Button>
+        <Button>{isLoading ? <Spinner size={22} color="white" /> : "Login"}</Button>
       </form>
 
       <p>

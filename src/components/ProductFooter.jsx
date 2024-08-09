@@ -9,9 +9,7 @@ export default function ProductFooter() {
         <h3>N 2000</h3>
       </div>
 
-      <Button>
-        <span>🛒</span> Add to Cart
-      </Button>
+      <Button> 🛒 Add to Cart</Button>
     </footer>
   );
 }

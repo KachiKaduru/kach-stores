@@ -24,7 +24,8 @@ export default function Preview({ item }) {
           >
             {liked ? <Heart fill="red" stroke="red" /> : <Heart />}
           </div>
-          <img src={`${URL}${item.image}`} alt="" />
+
+          <img src={`${URL}${item.image}`} alt="image" loading="lazy" />
         </div>
 
         <div className={styles.info}>

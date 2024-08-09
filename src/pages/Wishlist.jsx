@@ -29,7 +29,7 @@ export default function Wishlist() {
           <h2>My Wishlist</h2>
         </header>
 
-        <div className="wishlistContainer">
+        <div className={styles.wishlistContainer}>
           {wishlist.length < 1 && <p>You have not liked any item yet 😢</p>}
 
           {isLoading && <Spinner />}

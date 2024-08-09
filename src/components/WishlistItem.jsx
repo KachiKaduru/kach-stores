@@ -25,7 +25,7 @@ export default function WishlistItem({ id }) {
       }
       getItem();
     },
-    [id]
+    [id, setIsLoading]
   );
 
   return (
@@ -40,7 +40,7 @@ export default function WishlistItem({ id }) {
         <p>{price}</p>
       </div>
 
-      <LikedButton />
+      <LikedButton id={id} className={styles.liked} />
     </div>
   );
 }

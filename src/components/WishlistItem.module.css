@@ -1,9 +1,27 @@
 .item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.3fr 5fr 0.2fr;
+  gap: 1rem;
   background: var(--grey);
   padding: 1rem;
   border-radius: 1rem;
+  box-shadow: 0 0.4rem 1rem grey;
 
   .imgContainer {
+    background-color: white;
+    width: 7rem;
+    height: 7rem;
+    border: 1px solid grey;
+    border-radius: 1rem;
+
+    img {
+      border-radius: 1rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .liked {
+    place-self: center;
   }
 }

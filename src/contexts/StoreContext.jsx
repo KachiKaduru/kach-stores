@@ -66,8 +66,8 @@ function StoreProvider({ children }) {
   const [category, setCategory] = useState([]);
   const [productItem, setProductItem] = useState({});
   const [wishlist, setWishlist] = useState(() => {
-    const storedValue = localStorage.getItem("wishlist");
-    return JSON.parse(storedValue);
+    const storedWishlist = localStorage.getItem("wishlist");
+    return storedWishlist ? JSON.parse(storedWishlist) : [];
   });
 
   function handleWishlistItems(id) {

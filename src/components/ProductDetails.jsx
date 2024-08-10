@@ -7,8 +7,14 @@ import Spinner from "./Spinner";
 const sizes = ["S", "M", "L", "XL", "2XL"];
 
 export default function ProductDetails({ id }) {
-  const { URL, productItem, isLoading, setProductSize, productSize } = useStore();
+  const { URL, productItem, isLoading, setProductSize, productSize, clicked, setClicked } =
+    useStore();
   const { image, name } = productItem;
+
+  function handleSizeButton(s) {
+    setProductSize(s);
+    setClicked(false);
+  }
 
   return (
     <div className={styles.details}>
@@ -35,13 +41,15 @@ export default function ProductDetails({ id }) {
           {sizes.map((size) => (
             <SizesButton
               className={productSize === size ? `${styles.currentSize}` : ""}
-              onClick={() => setProductSize(size)}
+              onClick={() => handleSizeButton(size)}
               key={size}
             >
               {size}
             </SizesButton>
           ))}
         </div>
+
+        {clicked ? <p className={styles.error}>please choose a size</p> : null}
       </div>
     </div>
   );

@@ -66,6 +66,7 @@ function StoreProvider({ children }) {
   const [category, setCategory] = useState([]);
   const [productItem, setProductItem] = useState({});
   const [productSize, setProductSize] = useState("");
+  const [clicked, setClicked] = useState(false);
 
   const [wishlist, setWishlist] = useState(() => {
     const storedWishlist = localStorage.getItem("wishlist");
@@ -124,6 +125,8 @@ function StoreProvider({ children }) {
         handleCart,
         productSize,
         setProductSize,
+        clicked,
+        setClicked,
       }}
     >
       {children}

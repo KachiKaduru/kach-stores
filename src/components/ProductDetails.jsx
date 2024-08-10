@@ -7,7 +7,7 @@ import Spinner from "./Spinner";
 const sizes = ["S", "M", "L", "XL", "2XL"];
 
 export default function ProductDetails({ id }) {
-  const { URL, productItem, isLoading } = useStore();
+  const { URL, productItem, isLoading, setProductSize, productSize } = useStore();
   const { image, name } = productItem;
 
   return (
@@ -33,7 +33,13 @@ export default function ProductDetails({ id }) {
 
         <div>
           {sizes.map((size) => (
-            <SizesButton key={size}>{size}</SizesButton>
+            <SizesButton
+              className={productSize === size ? `${styles.currentSize}` : ""}
+              onClick={() => setProductSize(size)}
+              key={size}
+            >
+              {size}
+            </SizesButton>
           ))}
         </div>
       </div>

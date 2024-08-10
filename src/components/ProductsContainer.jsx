@@ -30,6 +30,8 @@ export default function ProductsContainer({ text }) {
   );
   return (
     <main className={styles.container}>
+      {/* <h2>{category[0].category}</h2> */}
+
       {category.map((item) => (
         <Preview item={item} key={item._id} />
       ))}

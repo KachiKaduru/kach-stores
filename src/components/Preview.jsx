@@ -4,12 +4,12 @@ import styles from "./Preview.module.css";
 import LikedButton from "./LikedButton";
 
 export default function Preview({ item }) {
-  const { URL } = useStore();
+  const { URL, setProductSize } = useStore();
   const { _id } = item;
 
   return (
     <Link to={`/product/${_id}`}>
-      <div className={styles.card}>
+      <div className={styles.card} onClick={() => setProductSize("")}>
         <div className={styles.imgContainer}>
           {/* the SPAN below is necessary for the styling */}
           <span className={styles.top}></span>

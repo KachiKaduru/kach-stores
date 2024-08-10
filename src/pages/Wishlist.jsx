@@ -1,11 +1,12 @@
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
 import { useEffect } from "react";
-import styles from "./Wishlist.module.css";
-import BackButton from "../components/BackButton";
+import { useNavigate } from "react-router-dom";
 import { useStore } from "../contexts/StoreContext";
+import { useAuth } from "../contexts/AuthContext";
+import styles from "./Wishlist.module.css";
+
 import WishlistItem from "../components/WishlistItem";
 import Spinner from "../components/Spinner";
+import CompHeader from "../components/CompHeader";
 
 export default function Wishlist() {
   const { wishlist, isLoading } = useStore();
@@ -23,11 +24,7 @@ export default function Wishlist() {
   return (
     <section>
       <div className={styles.wishlist}>
-        <header>
-          <BackButton />
-
-          <h2>My Wishlist</h2>
-        </header>
+        <CompHeader heading={"wishlist"} />
 
         <div className={styles.wishlistContainer}>
           {wishlist.length < 1 && <p>You have not liked any item yet 😢</p>}

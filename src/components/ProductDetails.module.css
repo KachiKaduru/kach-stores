@@ -47,4 +47,9 @@
       gap: 1rem;
     }
   }
+
+  .currentSize {
+    color: white;
+    background: var(--pry-color);
+  }
 }

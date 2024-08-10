@@ -1,7 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const StoreContext = createContext();
-
 const URL = `https://bintusstore.vercel.app/`;
 
 const categoryItems = [
@@ -61,18 +59,38 @@ const categoryItems = [
   // },
 ];
 
+const StoreContext = createContext();
+
 function StoreProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [category, setCategory] = useState([]);
   const [productItem, setProductItem] = useState({});
+  const [productSize, setProductSize] = useState("");
+
   const [wishlist, setWishlist] = useState(() => {
     const storedWishlist = localStorage.getItem("wishlist");
     return storedWishlist ? JSON.parse(storedWishlist) : [];
   });
 
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
   function handleWishlistItems(id) {
-    // setWishlist([id, ...wishlist]);
     setWishlist((list) => (list.includes(id) ? list.filter((item) => item !== id) : [id, ...list]));
+  }
+
+  function handleCart(id) {
+    setCart((cart) => (cart.includes(id) ? cart.filter((item) => item !== id) : [id, ...cart]));
+  }
+
+  function handleCartII(id) {
+    setCart((prevCart) =>
+      prevCart.some((item) => item.id === id)
+        ? prevCart.filter((item) => item.id !== id)
+        : [{ id, productSize }, ...prevCart]
+    );
   }
 
   useEffect(
@@ -80,6 +98,13 @@ function StoreProvider({ children }) {
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
     },
     [wishlist]
+  );
+
+  useEffect(
+    function () {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    },
+    [cart]
   );
 
   return (
@@ -95,6 +120,10 @@ function StoreProvider({ children }) {
         setProductItem,
         wishlist,
         handleWishlistItems,
+        cart,
+        handleCart,
+        productSize,
+        setProductSize,
       }}
     >
       {children}

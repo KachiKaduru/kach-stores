@@ -37,7 +37,9 @@ export default function WishlistItem({ id }) {
       <div className={styles.details}>
         <h4>{name}</h4>
 
-        <p>{price}</p>
+        <p>
+          <strong>₦</strong> {price}
+        </p>
       </div>
 
       <LikedButton id={id} className={styles.liked} />

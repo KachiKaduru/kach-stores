@@ -29,12 +29,12 @@ export default function NewArrivals() {
   );
 
   return (
-    <main className="container">
-      {/* <h2>{arrivals[0].category}</h2> */}
-
-      {arrivals.map((item) => (
-        <Preview item={item} key={item._id} />
-      ))}
+    <main>
+      <div className="container">
+        {arrivals.map((item) => (
+          <Preview item={item} key={item._id} />
+        ))}
+      </div>
     </main>
   );
 }

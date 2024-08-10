@@ -82,11 +82,11 @@ function StoreProvider({ children }) {
     setWishlist((list) => (list.includes(id) ? list.filter((item) => item !== id) : [id, ...list]));
   }
 
-  function handleCart(id) {
-    setCart((cart) => (cart.includes(id) ? cart.filter((item) => item !== id) : [id, ...cart]));
-  }
+  // function handleCart(id) {
+  //   setCart((cart) => (cart.includes(id) ? cart.filter((item) => item !== id) : [id, ...cart]));
+  // }
 
-  function handleCartII(id) {
+  function handleCart(id) {
     setCart((prevCart) =>
       prevCart.some((item) => item.id === id)
         ? prevCart.filter((item) => item.id !== id)

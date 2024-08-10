@@ -1,0 +1,12 @@
+.counter {
+  display: flex;
+  gap: 0.9rem;
+
+  button {
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid grey;
+    border-radius: 0.4rem;
+    background: white;
+  }
+}

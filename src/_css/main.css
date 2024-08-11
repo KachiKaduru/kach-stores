@@ -71,6 +71,7 @@ a {
 .home {
   display: grid;
   gap: 1.5rem;
+  padding-top: 3rem;
 }
 
 .container {
@@ -90,4 +91,12 @@ a {
     background: var(--pry-color);
     color: #fff;
   }
+}
+
+.reduce {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }

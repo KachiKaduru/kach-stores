@@ -35,7 +35,7 @@ export default function WishlistItem({ id }) {
       </div>
 
       <div className={styles.details}>
-        <h4>{name}</h4>
+        <h4 className="reduce">{name}</h4>
 
         <p>
           <strong>₦</strong> {price}

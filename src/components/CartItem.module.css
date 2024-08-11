@@ -24,18 +24,9 @@
 
 .info {
   display: grid;
-  flex-direction: column;
 
-  h5 {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    overflow: hidden;
-  }
-
-  h4 {
-    /* align-items: end; */
+  p {
+    font-size: 1.4rem;
   }
 }
 

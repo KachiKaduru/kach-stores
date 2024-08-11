@@ -1,4 +1,9 @@
 .header {
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 999;
+  padding: 2rem 0 2rem;
 }

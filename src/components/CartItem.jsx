@@ -4,17 +4,18 @@ import Counter from "./Counter";
 import { useStore } from "../contexts/StoreContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Skeleton } from "@mui/material";
 
 export default function CartItem({ obj }) {
   const { id, productSize: size } = obj;
-  const { URL, handleCart } = useStore();
+  const { URL, handleCart, isLoading, setIsLoading } = useStore();
   const [item, setItem] = useState({});
   const [currentCount, setCurrentCount] = useState(1);
 
   useEffect(
     function () {
       async function getCartItem() {
-        // setIsLoading(true);
+        setIsLoading(true);
         try {
           const res = await axios.get(`https://clothin-line.onrender.com/api/product/${id}`);
           const data = res.data;
@@ -22,25 +23,39 @@ export default function CartItem({ obj }) {
         } catch (error) {
           throw new Error(`error: ${error}`);
         } finally {
-          // setIsLoading(false);
+          setIsLoading(false);
         }
       }
       getCartItem();
     },
-    [id]
+    [id, setIsLoading]
   );
 
   return (
     <div className={styles.item}>
-      <div className={styles.imgContainer}>
-        <img src={`${URL}${item.image}`} alt="" />
-      </div>
+      {isLoading ? (
+        <Skeleton variant="rounded" height={70} width={70} />
+      ) : (
+        <div className={styles.imgContainer}>
+          <img src={`${URL}${item.image}`} alt="" />
+        </div>
+      )}
 
       <div className={styles.info}>
-        <h5>{item.name}</h5>
-        <p> Size {size}</p>
-
-        <h4>N {item.price * currentCount}</h4>
+        {isLoading ? (
+          <>
+            <Skeleton variant="rounded" width={180} height={30} />
+            <Skeleton variant="rounded" width={100} height={15} />
+            <Skeleton variant="rounded" width={100} height={15} />
+          </>
+        ) : (
+          <>
+            <h5 className="reduce">{item.name}</h5>
+            <p> Size {size}</p>
+            <h4>N {Number(item.price) * currentCount}</h4>
+            {/* <h4>N {item.price}</h4> */}
+          </>
+        )}
       </div>
 
       <div className={styles.other}>

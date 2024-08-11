@@ -3,8 +3,11 @@ import styles from "./Signup.module.css";
 import Button from "../components/Button";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Spinner from "../components/Spinner";
+import { useStore } from "../contexts/StoreContext";
 
 export default function Signup() {
+  const { isLoading } = useStore();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -68,7 +71,7 @@ export default function Signup() {
           />
         </label>
 
-        <Button>Sign Up</Button>
+        <Button>{isLoading ? <Spinner size={22} color="white" /> : "Sign up"}</Button>
       </form>
 
       <p>

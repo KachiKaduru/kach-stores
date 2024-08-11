@@ -1,4 +1,6 @@
 .catBtn {
+  color: var(pry-color);
+
   button {
     border-radius: 1rem;
     background: var(--grey);

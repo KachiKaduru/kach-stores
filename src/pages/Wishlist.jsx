@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { redirect, replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useStore } from "../contexts/StoreContext";
 import { useAuth } from "../contexts/AuthContext";
 import styles from "./Wishlist.module.css";
@@ -16,7 +16,7 @@ export default function Wishlist() {
 
   useEffect(
     function () {
-      if (!isAuthenticated) navigate("/login");
+      if (!isAuthenticated) navigate("/signup", { replace: true });
     },
     [isAuthenticated, navigate]
   );

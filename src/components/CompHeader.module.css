@@ -3,6 +3,12 @@
   grid-template-columns: 0.35fr 0.7fr;
   align-items: center;
 
+  button {
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+  }
+
   h2 {
     font-weight: 600;
     line-height: 4.5rem;

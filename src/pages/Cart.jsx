@@ -5,6 +5,8 @@ import { useStore } from "../contexts/StoreContext";
 import styles from "./Wishlist.module.css";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import Footer from "../components/Footer";
+import CartFooter from "../components/CartFooter";
 
 export default function Cart() {
   const { cart } = useStore();
@@ -20,17 +22,22 @@ export default function Cart() {
   );
 
   return (
-    <section>
-      <div className={styles.wishlist}>
-        <CompHeader heading="my cart" />
+    <>
+      <section>
+        <div className={styles.wishlist}>
+          <CompHeader heading="my cart" />
 
-        <div className={styles.wishlistContainer}>
-          {cart.length < 1 && <p>You&apos;ve not added anything to your cart yet 😥 </p>}
-          {cart.map((item) => (
-            <CartItem obj={item} key={item.id} />
-          ))}
+          <div className={styles.wishlistContainer}>
+            {cart.length < 1 && <p>You&apos;ve not added anything to your cart yet 😥 </p>}
+            {cart.map((item) => (
+              <CartItem obj={item} key={item.id} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Footer>
+        <CartFooter />
+      </Footer>
+    </>
   );
 }

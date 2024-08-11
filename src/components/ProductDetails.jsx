@@ -27,7 +27,6 @@ export default function ProductDetails({ id }) {
           <h3>{name}</h3>
           <LikedButton id={id} width={30} height={30} />
         </div>
-        <p>reviews</p>
         <p>
           The name says it all, the right size slightly snugs the body leaving enough room for
           comfort in the sleeves and waist.

@@ -1,5 +1,5 @@
 .details {
-  /* border: 1px solid green; */
+  margin-top: 2rem;
   display: grid;
   gap: 1.5rem;
 
@@ -21,6 +21,9 @@
   }
 
   .info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     div {
       display: grid;
       grid-template-columns: 0.8fr 0.2fr;

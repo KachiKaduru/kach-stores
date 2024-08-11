@@ -7,6 +7,7 @@ import ProductFooter from "../components/ProductFooter";
 
 import styles from "./Product.module.css";
 import CompHeader from "../components/CompHeader";
+import Footer from "../components/Footer";
 
 export default function Product() {
   const { id } = useParams();
@@ -37,7 +38,9 @@ export default function Product() {
         <CompHeader heading="details" />
         <ProductDetails id={id} />
       </section>
-      <ProductFooter id={id} />
+      <Footer>
+        <ProductFooter id={id} />
+      </Footer>
     </div>
   );
 }

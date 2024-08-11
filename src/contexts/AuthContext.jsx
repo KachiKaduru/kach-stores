@@ -3,7 +3,10 @@ import { createContext, useContext, useState } from "react";
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("user"));
+  const [isAuthenticated, setIsAuthenticated] = useState(function () {
+    const user = localStorage.getItem("user");
+    return user;
+  });
 
   function login(user) {
     localStorage.setItem("user", user);

@@ -11,6 +11,7 @@ export default function CartItem({ obj }) {
   const { URL, handleCart, isLoading, setIsLoading } = useStore();
   const [item, setItem] = useState({});
   const [currentCount, setCurrentCount] = useState(1);
+  const totalPrice = item.price * currentCount;
 
   useEffect(
     function () {
@@ -45,15 +46,14 @@ export default function CartItem({ obj }) {
         {isLoading ? (
           <>
             <Skeleton variant="rounded" width={180} height={30} />
-            <Skeleton variant="rounded" width={100} height={15} />
+            <Skeleton variant="rounded" width={60} height={15} />
             <Skeleton variant="rounded" width={100} height={15} />
           </>
         ) : (
           <>
             <h5 className="reduce">{item.name}</h5>
             <p> Size {size}</p>
-            <h4>N {Number(item.price) * currentCount}</h4>
-            {/* <h4>N {item.price}</h4> */}
+            <h4>N {totalPrice}</h4>
           </>
         )}
       </div>

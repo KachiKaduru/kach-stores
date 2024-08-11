@@ -11,9 +11,8 @@ export default function Preview({ item }) {
     <Link to={`/product/${_id}`}>
       <div className={styles.card} onClick={() => setProductSize("")}>
         <div className={styles.imgContainer}>
-          {/* the SPAN below is necessary for the styling */}
+          {/* the SPAN and LIKED BUTTON below is necessary for the styling */}
           <span className={styles.top}></span>
-
           <LikedButton className={styles.heartContainer} id={_id} />
 
           <img src={`${URL}${item.image}`} alt="image" loading="lazy" />

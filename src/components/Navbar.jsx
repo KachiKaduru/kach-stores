@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import menuImg from "../images/menu.svg";
 import closeImg from "../images/close.svg";
@@ -14,9 +14,7 @@ export default function Navbar() {
   }
 
   function handleAutoClose(e) {
-    console.log(e);
-    // if (e.target === "a") console.log("false");
-    // setOpen((s) => !s);
+    if (e.target.className === "nav") setOpen((s) => !s);
   }
 
   return (
@@ -32,16 +30,24 @@ export default function Navbar() {
 
         <ul onClick={(e) => handleAutoClose(e)}>
           <li onClick={() => setCategory([])}>
-            <NavLink to="/">Home</NavLink>
+            <Link className="nav" to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <NavLink to="wishlist">Wishlist</NavLink>
+            <Link className="nav" to="wishlist">
+              Wishlist
+            </Link>
           </li>
           <li>
-            <NavLink to="cart">Cart</NavLink>
+            <Link className="nav" to="cart">
+              Cart
+            </Link>
           </li>
           <li>
-            <NavLink to="signup">Sign up</NavLink>
+            <Link className="nav" to="signup">
+              Sign up
+            </Link>
           </li>
         </ul>
       </div>

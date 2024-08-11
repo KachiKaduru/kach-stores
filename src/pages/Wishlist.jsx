@@ -11,14 +11,16 @@ export default function Wishlist() {
   const { wishlist } = useStore();
   const { isAuthenticated } = useAuth();
 
+  // console.log(isAuthenticated);
+
   const navigate = useNavigate();
 
-  useEffect(
-    function () {
-      if (!isAuthenticated) navigate("/signup", { replace: true });
-    },
-    [isAuthenticated, navigate]
-  );
+  // useEffect(
+  //   function () {
+  //     if (!isAuthenticated) navigate("/signup", { replace: true });
+  //   },
+  //   [isAuthenticated, navigate]
+  // );
 
   return (
     <section>

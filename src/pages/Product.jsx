@@ -39,7 +39,7 @@ export default function Product() {
         <ProductDetails id={id} />
       </section>
       <Footer>
-        <ProductFooter id={id} />
+        <ProductFooter />
       </Footer>
     </div>
   );

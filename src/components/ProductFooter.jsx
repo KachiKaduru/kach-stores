@@ -24,7 +24,7 @@ export default function ProductFooter() {
             setClicked(true);
             return;
           }
-          handleCart(_id);
+          handleCart(_id, price);
         }}
       >
         {added ? "Added to cart 🎉" : "🛒 Add to Cart"}

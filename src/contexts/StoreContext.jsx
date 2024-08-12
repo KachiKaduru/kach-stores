@@ -82,15 +82,11 @@ function StoreProvider({ children }) {
     setWishlist((list) => (list.includes(id) ? list.filter((item) => item !== id) : [id, ...list]));
   }
 
-  // function handleCart(id) {
-  //   setCart((cart) => (cart.includes(id) ? cart.filter((item) => item !== id) : [id, ...cart]));
-  // }
-
-  function handleCart(id) {
+  function handleCart(id, price) {
     setCart((prevCart) =>
       prevCart.some((item) => item.id === id)
         ? prevCart.filter((item) => item.id !== id)
-        : [{ id, productSize }, ...prevCart]
+        : [{ id, price, productSize }, ...prevCart]
     );
   }
 

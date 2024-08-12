@@ -45,7 +45,7 @@ export default function CartItem({ obj }) {
       <div className={styles.info}>
         {isLoading ? (
           <>
-            <Skeleton variant="rounded" width={150} height={30} />
+            <Skeleton variant="rounded" width={120} height={30} />
             <Skeleton variant="rounded" width={60} height={15} />
             <Skeleton variant="rounded" width={100} height={15} />
           </>

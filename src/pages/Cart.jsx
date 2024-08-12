@@ -11,7 +11,6 @@ import CartFooter from "../components/CartFooter";
 export default function Cart() {
   const { cart } = useStore();
   const { isAuthenticated } = useAuth();
-
   const navigate = useNavigate();
 
   useEffect(

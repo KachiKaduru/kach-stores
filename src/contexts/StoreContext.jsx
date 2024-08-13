@@ -67,6 +67,11 @@ function StoreProvider({ children }) {
   const [productItem, setProductItem] = useState({});
   const [productSize, setProductSize] = useState("");
   const [clicked, setClicked] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  function handleOpen() {
+    setOpen((s) => !s);
+  }
 
   const [wishlist, setWishlist] = useState(() => {
     const storedWishlist = localStorage.getItem("wishlist");
@@ -123,6 +128,8 @@ function StoreProvider({ children }) {
         setProductSize,
         clicked,
         setClicked,
+        open,
+        handleOpen,
       }}
     >
       {children}

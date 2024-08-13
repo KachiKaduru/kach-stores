@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import menuImg from "../images/menu.svg";
@@ -7,16 +6,11 @@ import { useStore } from "../contexts/StoreContext";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function Navbar() {
-  const { setCategory } = useStore();
+  const { setCategory, open, handleOpen } = useStore();
   const { user } = useAuth();
-  const [open, setOpen] = useState(false);
-
-  function handleOpen() {
-    setOpen((s) => !s);
-  }
 
   function handleAutoClose(e) {
-    if (e.target.className === "nav") setOpen((s) => !s);
+    if (e.target.className === "nav") handleOpen();
   }
 
   return (

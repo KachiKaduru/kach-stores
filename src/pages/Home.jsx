@@ -6,18 +6,17 @@ import { useStore } from "../contexts/StoreContext";
 import NewArrivals from "../components/NewArrivals";
 import Showcase from "../components/Showcase";
 import Spinner from "../components/Spinner";
-import { useAuth } from "../contexts/AuthContext";
 
 export default function Home() {
-  const { category, isLoading } = useStore();
-  const { user } = useAuth();
-  // const noCategory = ;
-  // console.log(category);
+  const { category, isLoading, handleOpen, open } = useStore();
+
+  function closeNav() {
+    if (open) handleOpen();
+  }
 
   return (
-    <section className="home">
+    <section className="home" onClick={closeNav}>
       <Header />
-      {user.name && <p>hey, {user.name}</p>}
       <Searchbar />
       <CategoriesBar />
 

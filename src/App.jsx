@@ -10,6 +10,7 @@ import Settings from "./pages/Settings";
 import Product from "./pages/Product";
 import ProductsContainer from "./components/ProductsContainer";
 import PageNotFound from "./pages/PageNotFound";
+import Profile from "./pages/Profile";
 
 export default function App() {
   const { categoryItems } = useStore();
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="settings" element={<Settings />} />
           {/* <Route path="product" element={<Product />}/> */}
           <Route path="product/:id" element={<Product />} />
+          <Route path="profile" element={<Profile />} />
 
           {/* PAGES that NOT FOUND */}
           <Route path="*" element={<PageNotFound />} />

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useStore } from "../contexts/StoreContext";
+import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
 import styles from "./Signup.module.css";
 import Button from "../components/Button";
-import { useStore } from "../contexts/StoreContext";
 import Spinner from "../components/Spinner";
 
 export default function Login() {
   const navigate = useNavigate();
   const { isLoading, setIsLoading } = useStore();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
@@ -21,8 +23,8 @@ export default function Login() {
         email,
         password,
       });
-
-      localStorage.setItem("user", res.data);
+      const data = res.data;
+      login(data);
       navigate("/");
     } catch (error) {
       console.log(error.response.data.message);
@@ -53,6 +55,7 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onClick={removeErrorMessaage}
+            required
           />
         </label>
 
@@ -65,6 +68,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             onClick={removeErrorMessaage}
+            required
           />
         </label>
 

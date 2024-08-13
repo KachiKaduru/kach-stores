@@ -42,7 +42,7 @@ export default function WishlistItem({ id }) {
       <div className={styles.details}>
         {isLoading ? (
           <>
-            <Skeleton variant="rounded" width={180} height={40} />
+            <Skeleton variant="rounded" width={145} height={40} />
             <Skeleton variant="rounded" width={100} height={22} />
           </>
         ) : (

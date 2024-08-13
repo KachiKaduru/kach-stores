@@ -20,6 +20,14 @@
   flex-direction: column;
   gap: 5rem;
 
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 3rem;
+  }
+
   .closeNav,
   ul {
     margin: 0 0 0 2rem;

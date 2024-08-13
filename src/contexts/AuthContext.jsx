@@ -1,20 +1,29 @@
 import { createContext, useContext, useState } from "react";
+import { useStore } from "./StoreContext";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
+  const { setCategory } = useStore();
+  const [user, setUser] = useState({});
+
   const [isAuthenticated, setIsAuthenticated] = useState(function () {
-    const user = localStorage.getItem("user");
-    return user;
+    const currentUser = localStorage.getItem("user");
+    return currentUser;
   });
 
   function login(user) {
     localStorage.setItem("user", user);
     setIsAuthenticated(true);
+    setUser({ name: user.name, email: user.email });
+    setCategory([]);
   }
+
   function logout() {
     localStorage.removeItem("user");
     setIsAuthenticated(false);
+    setUser({});
+    setCategory([]);
   }
 
   return (
@@ -23,6 +32,7 @@ function AuthProvider({ children }) {
         isAuthenticated,
         login,
         logout,
+        user,
       }}
     >
       {children}

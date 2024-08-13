@@ -13,12 +13,12 @@ export default function Cart() {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(
-    function () {
-      if (!isAuthenticated) navigate("/signup", { replace: true });
-    },
-    [isAuthenticated, navigate]
-  );
+  // useEffect(
+  //   function () {
+  //     if (!isAuthenticated) navigate("/signup", { replace: true });
+  //   },
+  //   [isAuthenticated, navigate]
+  // );
 
   return (
     <>

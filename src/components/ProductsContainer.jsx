@@ -5,7 +5,10 @@ import axios from "axios";
 import { useStore } from "../contexts/StoreContext";
 
 export default function ProductsContainer({ text }) {
-  const { category, setCategory, setIsLoading } = useStore();
+  const { category, setCategory, setIsLoading, categoryItems } = useStore();
+
+  const okayy = categoryItems.map((item) => text === item.text);
+  console.log(okayy);
 
   useEffect(
     function () {
@@ -28,6 +31,7 @@ export default function ProductsContainer({ text }) {
     },
     [text, setCategory, setIsLoading]
   );
+
   return (
     <main className={styles.container}>
       {/* <h2>{category[0].category}</h2> */}

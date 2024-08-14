@@ -9,9 +9,9 @@ export default function Navbar() {
   const { setCategory, open, handleOpen } = useStore();
   const { user } = useAuth();
 
-  function handleAutoClose(e) {
-    if (e.target.className === "nav") handleOpen();
-  }
+  // function handleAutoClose(e) {
+  //   if (e.target.className === "nav") handleOpen();
+  // }
 
   return (
     <nav className={`${styles.nav}`}>
@@ -25,7 +25,8 @@ export default function Navbar() {
         </div>
 
         <div className={styles.links}>
-          <ul onClick={(e) => handleAutoClose(e)}>
+          <ul>
+            {/* onClick={(e) => handleAutoClose(e)} */}
             <li onClick={() => setCategory([])}>
               <Link className="nav" to="/">
                 Home

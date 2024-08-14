@@ -15,7 +15,7 @@ export default function LoggedIn() {
     <div className={styles.userDetails}>
       <div>
         <h4>Name</h4>
-        <input type="text" value={"kachman"} readOnly />
+        <input type="text" value={user.name} readOnly />
       </div>
 
       <div>

@@ -21,7 +21,7 @@ export default function Home() {
       <CategoriesBar />
 
       <Showcase>
-        {isLoading && <Spinner />}
+        {isLoading && <Spinner size={30} />}
         <Outlet />
         {category.length < 1 && <NewArrivals />}
       </Showcase>

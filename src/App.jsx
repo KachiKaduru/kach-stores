@@ -11,6 +11,7 @@ import Product from "./pages/Product";
 import ProductsContainer from "./components/ProductsContainer";
 import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   const { categoryItems } = useStore();
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />}>
             {categoryItems.map((item) => (

@@ -5,10 +5,7 @@ import axios from "axios";
 import { useStore } from "../contexts/StoreContext";
 
 export default function ProductsContainer({ text }) {
-  const { category, setCategory, setIsLoading, categoryItems } = useStore();
-
-  const okayy = categoryItems.map((item) => text === item.text);
-  console.log(okayy);
+  const { category, setCategory, setIsLoading } = useStore();
 
   useEffect(
     function () {
